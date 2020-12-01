@@ -20,6 +20,7 @@ Route::get('/', [PageController::class,"index"])->name('home');
 
 // user
 Route::get('/user/createPost',[PageController::class,"createPost"])->name('createPost');
+Route::get('/user/userProfile',[PageController::class,"userProfile"])->name('userProfile');
 
 
 

@@ -13,4 +13,8 @@ class PageController extends Controller
     function createPost(){
         return view('user.Create');
     }
+
+    function userProfile(){
+        return view('user.Userprofile');
+    }
 }
