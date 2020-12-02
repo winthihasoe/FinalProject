@@ -17,4 +17,8 @@ class PageController extends Controller
     function userProfile(){
         return view('user.Userprofile');
     }
+
+    function contactUs(){
+        return view('user.ContactUs');
+    }
 }
