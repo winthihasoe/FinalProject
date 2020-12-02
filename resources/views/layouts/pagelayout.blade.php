@@ -14,11 +14,14 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 {{-- css link  --}}
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+<!-- toastr noti -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 </head>
 <body>
     {{-- Navigation Bar  --}}
     
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark indigo lighten-1">
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark indigo lighten-1 sticky-top">
     <a class="navbar-brand" href="{{route('home')}}">Social App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
         aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +29,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="{{route('home')}}">Home
             <span class="sr-only">(current)</span>
             </a>
@@ -68,5 +71,15 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+<!-- toastr noti  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+<script>
+    @if(Session('message'))
+        let message="{{Session('message')}}"
+        toastr.success(message);
+    @endif
+</script>
 </body>
 </html>
