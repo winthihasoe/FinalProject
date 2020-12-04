@@ -13,4 +13,20 @@ class AuthController extends Controller
     function register(){
         return view('auth.register');
     }
+
+    function post_register(){
+        // authentication 
+        $validation=request()->validate([
+            'username'=>'required',
+            'email'=>'required',
+            'password'=>'required || min:8',
+            'image'=>'required'
+        ]);
+
+        if($validation){
+            return redirect()->route('home');
+        }else{
+            return back()->withErrors($validation);
+        }
+    }
 }
