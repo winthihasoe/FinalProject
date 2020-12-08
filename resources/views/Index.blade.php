@@ -1,6 +1,6 @@
 @extends('layouts.pagelayout')
 @Section('content')
-
+<h1>{{auth()->user()->name}}</h1>
     {{-- header img --}}
     <header></header>
 
@@ -10,8 +10,6 @@
         <div class="row">
         @foreach (range(1, 8) as $index)
             <div class="col-md-4 mt-3">
-                
-                    
                 <!-- Card -->
                 <div class="card">
 

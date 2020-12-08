@@ -68,4 +68,10 @@ class AuthController extends Controller
             return back()->withErrors($validation);
         }
     }
+
+    // logout
+    function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
