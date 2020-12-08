@@ -2,16 +2,28 @@
 @Section('content')
 <div class="container">
     <div class="col-md-4 offset-4 mt-5">
-        <form class="text-center border border-light p-5" action="#!">
-        
+
+        <!-- authentication failed -->
+        @if(session('error'))
+        <div class="alert alert-danger">
+            {{session('error')}}
+        </div>
+        @endif
+
+        <form class="text-center border border-light p-5" action="{{route('post_login')}}" method="post">
+        @csrf
             <p class="h4 mb-4 red-text">Sign in</p>
         
             <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-        
+            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
+            @error("email")
+                <div class="alert-danger mb-4">{{$message}}</div>
+            @enderror
             <!-- Password -->
-            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-        
+            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password">
+            @error("password")
+                <div class="alert-danger" mb-4>{{$message}}</div>
+            @enderror
             <div class="d-flex justify-content-around">
 
                 <div>
