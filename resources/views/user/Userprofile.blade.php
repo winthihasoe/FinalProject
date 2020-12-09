@@ -6,11 +6,15 @@
 <form class="border border-light p-5" action="#!">
 
     <label for="">Username</label>
-    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4">
+    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" value="{{auth()->user()->name}}">
+    
+    <label for="">Email</label>
+    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" value="{{auth()->user()->email}}">
 
     <label for="">Photo</label>
     <input type="file" id="defaultLoginFormPassword" class="form-control mb-4">
-    
+    <img src="{{asset('images/profiles/'.auth()->user()->image)}}" width="300px" alt="">
+    <br><br>
     <label for="">Old Password</label>
     <input type="password" id="defaultLoginFormEmail" class="form-control mb-4">
     <label for="">New Password</label>

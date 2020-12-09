@@ -1,4 +1,5 @@
 @extends('layouts.pagelayout')
+@section('title','Create Post')
 @section('content')
 
 <div class="container">

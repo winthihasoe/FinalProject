@@ -1,4 +1,5 @@
 @extends('layouts.adminlayout')
+@section('title','Premium User')
 @section('content')
     <h2>Manage Premium Users</h2>
     <table class="table table-hover">

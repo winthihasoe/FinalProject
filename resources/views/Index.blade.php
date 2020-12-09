@@ -1,6 +1,6 @@
 @extends('layouts.pagelayout')
+@Section('title','Home')
 @Section('content')
-<h1>{{auth()->user()->name}}</h1>
     {{-- header img --}}
     <header></header>
 

@@ -1,4 +1,5 @@
 @extends ('layouts.authlayout')
+@Section('title','Register')
 @Section('content')
 <div class="container">
     <div class="col-md-4 offset-4">

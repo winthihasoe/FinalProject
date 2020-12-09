@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final project</title>
+    <title>Final project | @yield('title')</title>
     <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Google Fonts -->
@@ -49,11 +49,11 @@
         <li class="nav-item avatar dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            {{-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
-                alt="avatar image"> --}}
+            <img src="{{asset('images/profiles/'.auth()->user()->image)}}" class="rounded-circle z-depth-0" alt="avatar image" width='40px' height='40px'>
             </a>
             <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
             aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="{{route('userProfile')}}">{{auth()->user()->name}}</a>
             <a class="dropdown-item" href="{{route('userProfile')}}">User Profile</a>
             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
             </div>

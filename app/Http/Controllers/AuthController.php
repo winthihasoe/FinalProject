@@ -63,7 +63,9 @@ class AuthController extends Controller
             $user->image=$image_name;
             $user->save();
             
+            if(Auth::attempt(['email'=>$validation['email'], 'password'=>$validation['password']])){
             return redirect()->route('home');
+            }
         }else{
             return back()->withErrors($validation);
         }
