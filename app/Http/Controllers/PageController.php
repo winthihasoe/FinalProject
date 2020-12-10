@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class PageController extends Controller
 {
     function index() {
-        $posts=Post::all();
+        $posts=Post::latest()->get();
         return view('Index',['posts'=>$posts]);
     }
 
@@ -77,6 +77,35 @@ class PageController extends Controller
     }
 
     function post(){
-        return redirect()->route('home')->with('message', 'add post');
+        // validation 
+        $validation=request()->validate([
+           'title'=>'required',
+           'image'=>'required',
+           'content'=>'required'
+        ]);
+
+        // get associated data as variable
+        if($validation){
+            $title=request('title');
+            $image=request('image');
+            $content=request('content');
+
+            $post=new Post();
+            $post->user_id=auth()->user()->id;
+            $post->title=$title;
+            
+            // image
+            $imageName=uniqid()."_".$image->getClientOriginalName();
+            $post->image=$imageName;
+            $image->move(public_path('images/posts/'),$imageName);
+            
+            $post->content=$content;
+            $post->save();
+
+            return redirect()->route('home')->with('message', 'add post');
+        }else{
+            return back()->withErrors($validation);
+        }
+        
     }
 }

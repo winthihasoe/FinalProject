@@ -15,8 +15,7 @@
 
                     <!-- Card image -->
                     <div class="view overlay">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                        alt="Card image cap">
+                    <img class="card-img-top" src="{{asset('images/posts/'.$post->image)}}" alt="">
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -28,7 +27,7 @@
                     <!-- Title -->
                     <h4 class="card-title">{{$post->title}}</h4>
                     <!-- Text -->
-                    <p class="card-text">{{$post->content}}}}</p>
+                    <p class="card-text">{{$post->content}}</p>
                     <!-- Button -->
                     <a href="#" class="btn btn-primary">See More</a>
                 
