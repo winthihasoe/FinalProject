@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -9,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class PageController extends Controller
 {
     function index() {
-        return view('Index');
+        $posts=Post::all();
+        return view('Index',['posts'=>$posts]);
     }
 
     function createPost(){
@@ -21,6 +23,7 @@ class PageController extends Controller
     }
 
     function post_userProfile(){
+        // rename data from input field
         $name=request('name');
         $email=request('email');
         $image=request('image');
