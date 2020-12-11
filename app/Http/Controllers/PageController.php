@@ -77,6 +77,12 @@ class PageController extends Controller
         return view('showPost',['post'=>$post]);
     }
 
+    function deletePost($id){
+        $delete_post=Post::find($id);
+        $delete_post->delete();
+        return redirect()->route('home')->with('message','Post Deleted!');
+    }
+
     function contactUs(){
         return view('user.ContactUs');
     }

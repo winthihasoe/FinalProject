@@ -31,7 +31,7 @@
         <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a class="nav-link" href="{{route('home')}}">Home
-            <span class="sr-only">(current)</span>
+            <span class="sr-only">Home</span>
             </a>
         </li>
         <li class="nav-item">
