@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function(){
     // user
     Route::get('/user/createPost',[PageController::class,"createPost"])->name('createPost');
     Route::post('/user/createPost',[PageController::class,"post"])->name('post');
+    Route::get('/post/{id}',[PageController::class,'postById'])->name('postById');
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name('userProfile');
     Route::post('/user/userProfile',[PageController::class,"post_userProfile"])->name('post_userProfile');
     Route::get('/user/contactUs',[PageController::class,"contactUs"])->name('contactUs');

@@ -15,21 +15,20 @@
 
                     <!-- Card image -->
                     <div class="view overlay">
-                    <img class="card-img-top" src="{{asset('images/posts/'.$post->image)}}" alt="">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
+                        <img class="card-img-top" src="{{asset('images/posts/'.$post->image)}}" alt="">
+                        <a href="{{route('postById',$post->id)}}">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
                     </div>
                 
                     <!-- Card content -->
                     <div class="card-body">
                 
-                    <!-- Title -->
-                    <h4 class="card-title">{{$post->title}}</h4>
-                    <!-- Text -->
-                    <p class="card-text">{{$post->content}}</p>
-                    <!-- Button -->
-                    <a href="#" class="btn btn-primary">See More</a>
+                        <!-- Title -->
+                        <h4 class="card-title">{{$post->title}}</h4>
+                       
+                        <!-- Button -->
+                        <a href="{{route('postById',$post->id)}}" class="btn btn-primary">See More</a>
                 
                     </div>
                 

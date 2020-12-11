@@ -21,7 +21,7 @@ class PageController extends Controller
     function userProfile(){
         return view('user.Userprofile');
     }
-
+ 
     function post_userProfile(){
         // rename data from input field
         $name=request('name');
@@ -70,6 +70,11 @@ class PageController extends Controller
         // update name and email
         $current_user->update();
         return back();
+    }
+
+    function postById($id){
+        $post=Post::find($id);
+        return view('showPost',['post'=>$post]);
     }
 
     function contactUs(){
