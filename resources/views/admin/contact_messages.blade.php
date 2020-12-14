@@ -14,14 +14,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <th>1</th>
-        <td>Mark</td>
-        <td>god@gmail.com</td>
-        <td>Hello Admin, how are you?</td>
-        <td><a href=""><button class="btn btn-sm mt-0 green">Update</button></a></td>
-        <td><a href=""><button class="btn btn-sm mt-0 red">Delete</button></a></td>
-        </tr>
+        @foreach ($messages as $message)
+            <tr>
+            <th>{{$message->id}}</th>
+            <td>{{$message->username}}</td>
+            <td>{{$message->email}}</td>
+            <td>{{$message->message}}</td>
+            <td><a href=""><button class="btn btn-sm mt-0 green">Update</button></a></td>
+            <td><a href=""><button class="btn btn-sm mt-0 red">Delete</button></a></td>
+            </tr>   
+        @endforeach
   </tbody>
 </table>
 @endsection

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,18 +18,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function(){
-// Home Route 
-    Route::get('/', [PageController::class,"index"])->name('home');
-    // user
+    
+    // view blade file
+    Route::get('/', [PageController::class,"index"])->name('home'); // Home Route 
     Route::get('/user/createPost',[PageController::class,"createPost"])->name('createPost');
-    Route::post('/user/createPost',[PageController::class,"post"])->name('post');
     Route::get('/post/edit/{id}',[PageController::class,"editPost"])->name('editPost');
-    Route::post('/post/update/{id}',[PageController::class,"updatePost"])->name('updatePost');
-    Route::get('/post/delete/{id}',[PageController::class,"deletePost"])->name('deletePost');
     Route::get('/post/{id}',[PageController::class,'postById'])->name('postById');
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name('userProfile');
-    Route::post('/user/userProfile',[PageController::class,"post_userProfile"])->name('post_userProfile');
+    
+    // post and backend 
+    Route::post('/user/createPost',[PostController::class,"post"])->name('post');
+    Route::post('/post/update/{id}',[PostController::class,"updatePost"])->name('updatePost');
+    Route::get('/post/delete/{id}',[PostController::class,"deletePost"])->name('deletePost');
+    Route::post('/user/userProfile',[AuthController::class,"post_userProfile"])->name('post_userProfile');
     Route::get('/user/contactUs',[PageController::class,"contactUs"])->name('contactUs');
+    
     // admin 
     Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/manage_premium_users',[AdminController::class,'manage_premium_users'])->name('admin.manage_premium_users');
