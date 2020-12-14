@@ -17,7 +17,7 @@
 
         <div class="row pb-5">
             <div class="col-md-6 text-right">
-                <a href="" class="btn btn-success">Edit Post</a>
+                <a href="{{route('editPost',$post->id)}}" class="btn btn-success">Edit Post</a>
             </div>
             <div class="col-md-6">
                 <a href="{{route('deletePost',$post->id)}}" class="btn btn-danger">Delete Post</a>

@@ -77,6 +77,34 @@ class PageController extends Controller
         return view('showPost',['post'=>$post]);
     }
 
+    function editPost($id){
+        $updateData=Post::find($id);
+        return view('user.editPost',['updateData'=>$updateData]);
+    }
+
+    function updatePost($id){
+        // catch data from edit post form field
+        $title=request('title');
+        $image=request('image');
+        $content=request('content');
+
+        // find post with id from db table
+        $update_data=Post::find($id);
+        $update_data->title=$title;
+        $update_data->content=$content;
+
+        // image
+        if($image){
+        $imageName=uniqid().'_'.$image->getClientOriginalName();
+        $image->move(public_path('images/posts'),$imageName);
+        $update_data->image=$imageName;
+        $update_data->update();
+        }
+
+        // return back
+        return back()->with('message','Post updated');
+    }
+
     function deletePost($id){
         $delete_post=Post::find($id);
         $delete_post->delete();

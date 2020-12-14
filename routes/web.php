@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function(){
     // user
     Route::get('/user/createPost',[PageController::class,"createPost"])->name('createPost');
     Route::post('/user/createPost',[PageController::class,"post"])->name('post');
+    Route::get('/post/edit/{id}',[PageController::class,"editPost"])->name('editPost');
+    Route::post('/post/update/{id}',[PageController::class,"updatePost"])->name('updatePost');
     Route::get('/post/delete/{id}',[PageController::class,"deletePost"])->name('deletePost');
     Route::get('/post/{id}',[PageController::class,'postById'])->name('postById');
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name('userProfile');
