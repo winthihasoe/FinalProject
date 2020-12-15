@@ -1,6 +1,6 @@
-@extends("layouts.pagelayout")
+<x-pagelayout>
 @Section('title','Post')
-@section('content')
+
     <div class="container">
         <div class="row justify-content-center py-4">
             <h1>{{$post->title}}</h1>
@@ -26,4 +26,4 @@
     </div>
 
 
-@endsection 
+</x-pagelayout>

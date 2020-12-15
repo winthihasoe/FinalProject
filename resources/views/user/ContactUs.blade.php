@@ -1,6 +1,6 @@
-@extends('layouts.pagelayout')
+<x-pagelayout>
 @section('title','Contact')
-@section('content')
+
 
 <div class="container-fluid">
     <h1 class="mt-4">Contact Us</h1>
@@ -63,4 +63,4 @@
 
 </div>
 
-@endsection
+</x-pagelayout>

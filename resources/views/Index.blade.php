@@ -1,4 +1,4 @@
-@extends('layouts.pagelayout')
+<x-pagelayout>
 @Section('title','Home')
 @Section('content')
     {{-- header img --}}
@@ -40,4 +40,4 @@
         @endforeach
         </div>
     </div>
-@endsection 
+</x-pagelayout>

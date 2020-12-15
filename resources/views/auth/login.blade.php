@@ -1,6 +1,5 @@
-@extends('layouts.authlayout')
+<x-authlayout>
 @Section('title','Login')
-@Section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-xs-12  mt-5">
@@ -50,4 +49,5 @@
     </div>
 </div>
 <!-- Default form login -->
-<!-- Default form login -->@endsection
+<!-- Default form login -->
+</x-authlayout>

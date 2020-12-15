@@ -1,4 +1,4 @@
-@extends ('layouts.pagelayout')
+<x-pagelayout>
 @section('title',"User Profile")
 @section('content')
 <div class="container">
@@ -34,4 +34,4 @@
 </form>
 
 </div>
-@endsection
+</x-pagelayout>

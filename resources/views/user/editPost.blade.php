@@ -1,6 +1,6 @@
-@extends('layouts.pagelayout')
+<x-pagelayout>
 @section('title','Edit Post')
-@section('content')
+
 
 <div class="container">
 <h1 class="mt-4 mb-4">Edit post</h1>
@@ -23,4 +23,4 @@
 </form>
 
 </div>
-@endsection
+</x-pagelayout>
