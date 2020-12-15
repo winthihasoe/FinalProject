@@ -22,21 +22,32 @@
                 <div class="card-body px-lg-5">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="#!">
+                    <form class="text-center" style="color: #757575;" action="{{route('post_contact_message')}}" method='post'>
+                    @csrf
 
                         <!-- Username -->
                         <div class="md-form mt-3">
-                            <input type="text" id="materialSubscriptionFormPasswords" class="form-control">
+                            <input type="text" id="materialSubscriptionFormPasswords" class="form-control" name="username">
                             <label for="materialSubscriptionFormPasswords">Username</label>
+                            @error('username')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
 
                         <!-- E-mai -->
                         <div class="md-form">
-                            <input type="email" id="materialSubscriptionFormEmail" class="form-control">
+                            <input type="email" id="materialSubscriptionFormEmail" class="form-control" name="email">
                             <label for="materialSubscriptionFormEmail">E-mail</label>
+                            @error('email')
+                                <div class="text-danger"> {{$message}}</div>
+                            @enderror
                         </div>
+                        
 
-                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="your message"></textarea>
+                        <textarea name="message" id="" cols="30" rows="10" class="form-control" placeholder="your message"></textarea>
+                        @error('message')
+                            <div class="text-danger"> {{$message}}</div>
+                        @enderror
 
                         <!-- Send Message button -->
                         <button class="btn btn-info btn-block my-4" type="submit">Send Message</button>
