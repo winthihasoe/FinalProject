@@ -16,7 +16,12 @@
             <p class="h4 mb-4 red-text">Sign in</p>
         
             <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
+            <input type="email" list="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
+            <datalist id="email">
+                <option value="winsoe@gamil.com"></option>
+                <option value="winwin@gamil.com"></option>
+            </datalist>
+
             @error("email")
                 <div class="alert-danger mb-4">{{$message}}</div>
             @enderror

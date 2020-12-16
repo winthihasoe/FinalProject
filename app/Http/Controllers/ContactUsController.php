@@ -32,7 +32,11 @@ class ContactUsController extends Controller
         }else{
             return back()->withErrors($validation);
         }
+    }
 
-        // save it to db 
+    function deleteMessage($id){
+        $deleteData=ContactMessage::find($id);
+        $deleteData->delete();
+        return back()->with('message','Message deleted');
     }
 }

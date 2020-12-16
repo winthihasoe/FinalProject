@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/manage_premium_users',[AdminController::class,'manage_premium_users'])->name('admin.manage_premium_users');
     Route::get('/admin/contact_messages',[AdminController::class,'contact_messages'])->name('admin.contact_messages');
+    Route::get('/admin/contact_messages/delete/{id}',[ContactUsController::class,"deleteMessage"])->name('deleteMessage');
     Route::get('/logout',[AuthController::class,"logout"])->name('logout');
 
 });

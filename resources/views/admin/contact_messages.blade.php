@@ -19,8 +19,8 @@
             <td>{{$message->username}}</td>
             <td>{{$message->email}}</td>
             <td>{{$message->message}}</td>
-            <td><a href=""><button class="btn btn-sm mt-0 green">Update</button></a></td>
-            <td><a href=""><button class="btn btn-sm mt-0 red">Delete</button></a></td>
+            <td><a href=""><a class="btn btn-sm mt-0 green">Update</a></a></td>
+            <td><a href=""><a class="btn btn-sm mt-0 red" href="{{route('deleteMessage',$message->id)}}">Delete</a></a></td>
             </tr>   
         @endforeach
   </tbody>
