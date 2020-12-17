@@ -14,15 +14,17 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($users as $user)
         <tr>
-        <th>1</th>
-        <td>Mark</td>
-        <td>god@gmail.com</td>
-        <td>true</td>
-        <td>true</td>
-        <td><a href=""><button class="btn btn-sm mt-0 green">Update</button></a></td>
-        <td><a href=""><button class="btn btn-sm mt-0 red">Delete</button></a></td>
+            <th>{{$user->id}}</th>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td><b>{{$user->isAdmin=='0'? 'No':'Yes'}}</b></td>
+            <td><b>{{$user->isAdmin=='0'? 'No':'Yes'}}</b></td>
+            <td><a href=""><button class="btn btn-sm mt-0 green">Update</button></a></td>
+            <td><a href=""><button class="btn btn-sm mt-0 red">Delete</button></a></td>
         </tr>
+        @endforeach
   </tbody>
 </table>
 </x-adminlayout>

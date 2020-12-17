@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactMessage;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,7 +13,8 @@ class AdminController extends Controller
     }
 
     function manage_premium_users(){
-        return view('admin.manage_premium_users');
+        $users=User::get();
+        return view('admin.manage_premium_users',['users'=>$users]);
     }
 
     function contact_messages(){
