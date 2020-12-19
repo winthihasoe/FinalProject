@@ -17,6 +17,38 @@ class AdminController extends Controller
         return view('admin.manage_premium_users',['users'=>$users]);
     }
 
+    function editUser($id){
+        $updateUser=User::find($id);
+        return view('admin.editUser',['updateUser'=>$updateUser]);
+    }
+
+    function updateUser($id){
+        // $updateUser=User::find($id);
+        // return $updateUser;
+        $validation=request()->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'isAdmin'=>'required',
+            'isPremium'=>'required'
+        ]);
+
+        if($validation){
+            // grab user data from database
+            $updateUser=User::find($id);
+            // override data from form field
+            $updateUser->name=$validation['name'];
+            $updateUser->email=$validation['email'];
+            $updateUser->isAdmin=$validation['isAdmin'];
+            $updateUser->isPremium=$validation['isPremium'];
+            $updateUser->update();
+            // return back
+            return back()->with('message','User updated');
+        }else{
+            return back()->withErrors($validation);
+        }
+        
+    }
+
     function deleteUser($id){
         $deleteUser=User::find($id);
         $deleteUser->delete();

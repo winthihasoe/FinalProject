@@ -20,8 +20,8 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td><b>{{$user->isAdmin=='0'? 'No':'Yes'}}</b></td>
-            <td><b>{{$user->isAdmin=='0'? 'No':'Yes'}}</b></td>
-            <td><a href=""><button class="btn btn-sm mt-0 green">Update</button></a></td>
+            <td><b>{{$user->isPremium=='0'? 'No':'Yes'}}</b></td>
+            <td><a href="{{route('admin.editUser',$user->id)}}" class="btn btn-sm mt-0 green">Update</a></td>
             <td><a href="{{route('admin.deleteUser',$user->id)}}" class="btn btn-sm mt-0 red">DELETE</a></td>
         </tr>
         @endforeach

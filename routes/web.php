@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function(){
     // admin 
     Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/manage_premium_users',[AdminController::class,'manage_premium_users'])->name('admin.manage_premium_users');
+    Route::get('/admin/manage_premium_users/edit/{id}',[AdminController::class,'editUser'])->name('admin.editUser');
+    Route::post('/admin/manage_premium_users/update/{id}',[AdminController::class,'updateUser'])->name('admin.updateUser');
     Route::get('/admin/manage_premium_users/delete/{id}',[AdminController::class,'deleteUser'])->name('admin.deleteUser');
     Route::get('/admin/contact_messages',[AdminController::class,'contact_messages'])->name('admin.contact_messages');
     Route::get('/admin/contact_messages/edit/{id}',[ContactUsController::class,"editMessage"])->name('editMessage');
