@@ -17,6 +17,11 @@ class AdminController extends Controller
         return view('admin.manage_premium_users',['users'=>$users]);
     }
 
+    function deleteUser($id){
+        $deleteUser=User::find($id);
+        $deleteUser->delete();
+        return back()->with('message','User deleted');
+    }
     function contact_messages(){
         $message=ContactMessage::latest()->get();
         return view('admin.contact_messages',['messages'=>$message]);
