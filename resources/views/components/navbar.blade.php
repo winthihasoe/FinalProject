@@ -15,9 +15,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('createPost')}}">Create post</a>
                 </li>
+                @can('admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.index')}}">Admin Control</a>
                 </li>
+                @endcan
+                
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a>
                 </li>
