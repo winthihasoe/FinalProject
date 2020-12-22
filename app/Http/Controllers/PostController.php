@@ -43,7 +43,15 @@ class PostController extends Controller
 
     // update post
     function updatePost($id){
-        // catch data from edit post form field
+        // // validate data 
+        // $validation=request()->validate([
+        //     "title"=>'required',
+        //     "image"=>'required',
+        //     "content"=>'required'
+        // ]);
+        // if($validation){
+        // // catch data from edit post form field
+
         $title=request('title');
         $image=request('image');
         $content=request('content');
@@ -58,11 +66,13 @@ class PostController extends Controller
         $imageName=uniqid().'_'.$image->getClientOriginalName();
         $image->move(public_path('images/posts'),$imageName);
         $update_data->image=$imageName;
-        $update_data->update();
         }
+       
+        $update_data->update();
 
         // return back
         return back()->with('message','Post updated');
+       
     }
 
     // delete post

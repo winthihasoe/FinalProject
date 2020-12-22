@@ -29,5 +29,6 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('admin',function(User $user){
             return auth()->user()->isAdmin=='1';
         });
+
     }
 }

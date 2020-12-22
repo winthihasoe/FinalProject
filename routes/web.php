@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function(){
     // view blade file
     Route::get('/', [PageController::class,"index"])->name('home'); // Home Route 
     Route::get('/user/createPost',[PageController::class,"createPost"])->name('createPost');
-    Route::get('/post/edit/{id}',[PageController::class,"editPost"])->name('editPost');
+    Route::get('/post/edit/{id}',[PageController::class,"editPost"])->name('editPost')->middleware('premiumUser');
     Route::get('/post/{id}',[PageController::class,'postById'])->name('postById');
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name('userProfile');
     Route::get('/user/contactUs',[PageController::class,"contactUs"])->name('contactUs');
@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function(){
     // post and backend 
     Route::post('/user/createPost',[PostController::class,"post"])->name('post');
     Route::post('/post/update/{id}',[PostController::class,"updatePost"])->name('updatePost');
-    Route::get('/post/delete/{id}',[PostController::class,"deletePost"])->name('deletePost');
+    Route::get('/post/delete/{id}',[PostController::class,"deletePost"])->name('deletePost')->middleware('premiumUser');
     Route::post('/user/userProfile',[AuthController::class,"post_userProfile"])->name('post_userProfile');
     Route::post('/user/contactUs',[ContactUsController::class,"post_contact_message"])->name('post_contact_message');
     Route::get('/logout',[AuthController::class,"logout"])->name('logout');
