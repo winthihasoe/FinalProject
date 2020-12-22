@@ -43,13 +43,6 @@ class PostController extends Controller
 
     // update post
     function updatePost($id){
-        // // validate data 
-        // $validation=request()->validate([
-        //     "title"=>'required',
-        //     "image"=>'required',
-        //     "content"=>'required'
-        // ]);
-        // if($validation){
         // // catch data from edit post form field
 
         $title=request('title');
