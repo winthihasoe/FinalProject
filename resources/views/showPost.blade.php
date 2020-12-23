@@ -15,7 +15,8 @@
              </div>
         </div>
 
-        @if (auth()->user()->isAdmin=="1" || auth()->user()->isPremium || $post->user_id==auth()->user()->id)    
+        {{-- @if (auth()->user()->isAdmin=="1" || auth()->user()->isPremium || $post->user_id==auth()->user()->id)     --}}
+        @can("premiumAdminPostOwner",$post->id)
         <div class="row pb-5">
             <div class="col-md-6 text-right">
                 <a href="{{route('editPost',$post->id)}}" class="btn btn-success">Edit Post</a>
@@ -24,7 +25,8 @@
                 <a href="{{route('deletePost',$post->id)}}" class="btn btn-danger">Delete Post</a>
             </div>
         </div>
-        @endif
+        @endcan
+        {{-- @endif --}}
     </div>
 
 
