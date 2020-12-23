@@ -47,9 +47,15 @@
                         <label for="materialRegisterFormPassword">Password</label>
                         
                     </div>
+                    <!-- Confirm Password -->
+                    <div class="md-form">
+                        <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password_confirmation">
+                        <label for="materialRegisterFormPassword">Confirm Password</label>
+                        
+                    </div>
                     <!-- profile photo -->
                     <div class="md-form">
-                        <input type="file" id="materialRegisterFormPassword"  aria-describedby="materialRegisterFormPasswordHelpBlock" name="image">
+                        <input type="file" id="materialRegisterFormPassword"  aria-describedby="materialRegisterFormPasswordHelpBlock" name="image" value="{{old('image')}}">
                         @error('image')
                             <p class="text-danger">{{$message}}</p>
                         @enderror
