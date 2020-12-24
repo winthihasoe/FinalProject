@@ -17,7 +17,7 @@
 
                         <!-- Card image -->
                         <div class="view overlay">
-                            <img class="card-img-top" src="{{asset('images/posts/'.$post->image)}}" alt="">
+                            <img class="card-img-top" src="{{asset('images/posts/'.$post->image)}}" alt="cap-image">
                             <a href="{{route('postById',$post->id)}}">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
