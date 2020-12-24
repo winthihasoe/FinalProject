@@ -42,6 +42,7 @@
 
             </div>
         @endforeach
+        {{$posts->links()}}
         </div>
     </div>
 </x-pagelayout>
